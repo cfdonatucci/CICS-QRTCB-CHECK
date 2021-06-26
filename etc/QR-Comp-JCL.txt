@@ -1,0 +1,38 @@
+//XXXXXXXX JOB (,),'QRTCB',NOTIFY=&SYSUID,CLASS=Z                
+//*                                                              
+//         SET NDX=HLQ.CTS5XX                PREFIX  CICS LIBS   
+//         SET DSC=HLQ.CTS5XX.SDFHMAC        SDFHMAC LIB         
+//         SET PRE=HLQ.QRTCB                 QRCHECK LIBS        
+//*                                                              
+//COMPQRC EXEC DFHEITAL,                                         
+//        INDEX=&NDX,DSCTLIB=&DSC,                               
+//        LNKPARM='LIST,XREF,AMODE=31',                          
+//        PROGLIB=&PRE..LOADLIB                                  
+//TRN.SYSIN    DD DSN=&PRE..SRC(QRCHECK),DISP=SHR                
+//LKED.SYSIN   DD *                                              
+       NAME QRCHECK(R)                                           
+//*                                                              
+//COMPINI EXEC DFHEITAL,                                         
+//        INDEX=&NDX,DSCTLIB=&DSC,                               
+//        LNKPARM='LIST,XREF,AMODE=31',                          
+//        PROGLIB=&PRE..LOADLIB                                  
+//TRN.SYSIN    DD DSN=&PRE..SRC(QRCHINI),DISP=SHR                
+//LKED.SYSIN   DD *                                              
+       NAME QRCHINI(R)                                           
+//*                                                    
+//COMPADM EXEC DFHEITAL,                               
+//        INDEX=&NDX,DSCTLIB=&DSC,                     
+//        LNKPARM='LIST,XREF,AMODE=31',                
+//        PROGLIB=&PRE..LOADLIB                        
+//TRN.SYSIN    DD DSN=&PRE..SRC(QRCHADM),DISP=SHR      
+//LKED.SYSIN   DD *                                    
+       NAME QRCHADM(R)                                 
+//*                                                    
+//COMPWAI EXEC DFHEITAL,                               
+//        INDEX=&NDX,DSCTLIB=&DSC,                     
+//        LNKPARM='LIST,XREF,AMODE=31',                
+//        PROGLIB=&PRE..LOADLIB                        
+//TRN.SYSIN    DD DSN=&PRE..SRC(QRCHWAI),DISP=SHR      
+//LKED.SYSIN   DD *                                    
+       NAME QRCHWAI(R)                                 
+//*                                                    

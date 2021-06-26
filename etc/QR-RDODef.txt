@@ -1,0 +1,26 @@
+*                                                                       
+*  CONTROL PROGRAM/TRN                                                  
+*                                                                       
+ DEFINE TRANSACTION(QRCH) GROUP(QRCHGRP)                                
+        DESCRIPTION(QR TCB LOOP CONTROL)                                
+        PROGRAM(QRCHECK) TASKDATAKEY(CICS) PRIORITY(255)  
+ DEFINE TRANSACTION(QRIN) GROUP(QRCHGRP)                                
+        DESCRIPTION(QR TCB LOOP CONTROL INIT)                           
+        PROGRAM(QRCHINI) TASKDATAKEY(CICS) PRIORITY(255)     
+ DEFINE TRANSACTION(QRAD) GROUP(QRCHGRP)                                
+        DESCRIPTION(QR TCB ADMIN TRAN)                                  
+        PROGRAM(QRCHADM) TASKDATAKEY(CICS) PRIORITY(255)                
+*
+ DEFINE PROGRAM(QRCHECK) GROUP(QRCHGRP)                                 
+        DESCRIPTION(QR TCB LOOP CONTROL)                                
+        LANGUAGE(ASSEMBLER) EXECKEY(CICS)                               
+        CONCURRENCY(THREADSAFE) API(OPENAPI)                            
+ DEFINE PROGRAM(QRCHINI) GROUP(QRCHGRP)                                 
+        DESCRIPTION(QR TCB LOOP CONTROL INIT)                           
+        LANGUAGE(ASSEMBLER) EXECKEY(CICS)                               
+ DEFINE PROGRAM(QRCHADM) GROUP(QRCHGRP)                                 
+        DESCRIPTION(QR TCB ADMIN PGM)                                   
+        LANGUAGE(ASSEMBLER) EXECKEY(CICS)                               
+ DEFINE PROGRAM(QRCHTAB) GROUP(QRCHGRP)                                 
+        DESCRIPTION(REGION TABLE)                                       
+        LANGUAGE(ASSEMBLER) EXECKEY(CICS)                               

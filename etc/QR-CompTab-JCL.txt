@@ -1,0 +1,10 @@
+//XXXXXXXX JOB (,),'QRTCB',NOTIFY=&SYSUID,CLASS=Z   
+//*                        
+//STEP01 EXEC ASMACL                                                  
+//C.SYSIN   DD DISP=SHR,DSN=HLQ.QRTCB.SRC(QRCHTAB)       
+//C.SYSLIB  DD DISP=SHR,DSN=SYS1.MACLIB                           
+//          DD DISP=SHR,DSN=HLQ.QRTCB.SRC                
+//L.SYSLMOD DD DISP=SHR,DSN=HLQ.QRTCB.LOADLIB            
+//L.SYSIN   DD *                                                  
+    NAME QRCHTAB(R)                                               
+//                                                                

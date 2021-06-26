@@ -1,0 +1,80 @@
+MESSAGES                                                                     
+°°°°°°°°                                                                     
+QRC001E regname  QR TCB TOD unchanged  0010 {mmss}                           
+ explanation: Loop or wait condition is detected. QR CSATODP wasn't          
+ updated during the current checking interval. Possible problems:            
+ a. Transaction loop.                                                        
+ b. The region was not properly dispatched by the OS.                        
+                                                                             
+QRC002E regname  SOS CONDITION DETECTED                                      
+ explanation: CSASOSON flag indicates the region is currently                
+ on short on storage condition                                               
+                                                                             
+QRC003E regname  MXT CONDITION DETECTED                                      
+ explanation: CSAMXTON flag indicates the region is currently                
+ on max task condition                                                       
+                                                                             
+QRC004I regname  QRCHECK STARTED  - MAINT mm/dd/yy                           
+ explanation: Main program has started showing last maintenance date         
+                                                                             
+QRC005I regname  QRCHECK STOPPED                                             
+ explanation: Main program has stopped as result of QRADMSTO cmd                                                                                  
+QRC006E regname  ABEND DETECTED                                      
+ explanation: Main program has detected some internal abend.         
+ Temp storage CHRQ and common memory are released.                   
+ The application stops                                               
+                                                                     
+QRC008I QRCH TRANSACTION ALREADY ACTIVE                              
+ explanation: an attempt to run QRIN is done when the status is      
+ already ACTIVE                                                      
+                                                                     
+QRC009E QRCH INITIALIZATION ERROR. GETMAIN FAILED                    
+ explanation: during initialization, 128b getmain fails.             
+ The application stops                                               
+                                                                     
+QRC010E QRCH INITIALIZATION ERROR. WRITEQ ERROR                      
+ explanation: during initialization, writeq TS QRCH fails.           
+ The application stops                                               
+                                                                     
+QRC011I regname  QRCHECK FINALIZATION SCHEDULED                      
+ explanation: Command QRADSTO has been executed to schedule stop.    
+ The application stops when current STIMER cycle expires             
+ QRC012I regname  QRCHECK ENABLED                                             
+ explanation: future use                                                     
+                                                                             
+QRC013I regname  QRCHECK DISABLED                                            
+ explanation: future use                                                     
+                                                                             
+QRC014I regname  QRCHECK INTERVAL SET  mmss                                  
+ explanation: Command QRADINT has been executed to reset the                 
+ checking interval                                                           
+                                                                             
+QRC015I regname  hhmmss00X                                                   
+ explanation: Command QRADSHO has been executed to display the               
+ current interval checking and status                                        
+ hhmmss00 is the interval checking between 0005 and 0259.                    
+ X Active Stopped.                                                           
+                                                                             
+QRC016E regname  INPUT COMMAND LONGER THAN ALLOWED                           
+ explanation: Command QRADINT has been executed and the parm lenght          
+ is invalid                                                                  
+                                                                             
+QRC017E regname  INVALID FUNCTION CODE or param                              
+ explanation: Command QRADxxx has been executed and xxx is not ok             
+ possible values are SHO, STO, INT                                        
+ Parameter for INT function may be wrong, not 0005<parm<0259.             
+                                                                          
+QRC018I FUNCTION OK                                                       
+ explanation: A command has been processed succesfully.                   
+                                                                          
+QRC019E regname  INVALID INTERVAL. 0005<INT<0259                          
+ explanation: Command QRADINT has been executed and mmss in not ok        
+ possible values 0005 to 0259                                             
+                                                                          
+QRC020E regname  ERROR READING QUEUE QRCH                                 
+ explanation: An attempt to read TSQ QRCH failed.                         
+ The application stops                                                    
+                                                                          
+QRC021I QRCH cheking interval set as hhmmss00                             
+ explanation: Interval set according to QRCHTAB or default to 30"         
+                                                                          

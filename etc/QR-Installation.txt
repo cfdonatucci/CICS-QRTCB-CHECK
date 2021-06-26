@@ -1,0 +1,25 @@
+Installation procedure                                                       
+----------------------
+
+. Compile programs                                                            
+  Run Compilation JCLs according to cics version. 
+  Add LOAD library to DFHRPL DD Concatenation.                  
+                                                                              
+. Add RDO definitions into DFHCSD,                                            
+  Run DFHCSDUP utility using RDODEF member.                                   
+                                                                              
+. Add group QRCHGRP to initialization list.                                   
+                                                                              
+. PLT Initial                                                                 
+  If PLT application is in place add one of the following entries             
+  A   QRIN     TRAN  000000    00                                             
+  A   QRCHINI  PROG                                                           
+                                                                              
+  To start manually issue /F CICSxxxx,QRIN                                    
+                                                                              
+  To update a PLT intital                                                     
+         PRINT NOGEN                                                          
+PLTPI    DFHPLT TYPE=INITIAL,SUFFIX=PI                                        
+         DFHPLT TYPE=ENTRY,PROGRAM=QRCHINI      QRTCB CHECK                           
+         DFHPLT TYPE=FINAL                    
+        END                                  
